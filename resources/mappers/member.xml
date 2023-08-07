@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+      <mapper namespace="memberMappers">
+        <resultMap type="member.vo.Member"
+		id="Member">
+		<id property="memberId" column="MEMBER_ID" />
+		<result property="memberPw" column="MEMBER_PW" />
+		<result property="memberName" column="MEMBER_NAME" />
+		<result property="memberNicName" column="MEMBER_NICNAME" />
+		<result property="memberEmail" column="MEMBER_EMAIL" />
+		<result property="memberPhone" column="MEMBER_PHONE" />
+		<result property="memberDate" column="MEMBER_DATE"/>
+	</resultMap>
+      <delete id="memberDelete">
+      	DELETE FROM CARMU WHERE MEMBER_ID = #{memberId}
+      </delete>
+      
+      <select id="selectMember" resultMap="Member">
+      	SELECT * FROM CARMU WHERE MEMBER_ID = #{memberId}
+      </select>
+      </mapper>
